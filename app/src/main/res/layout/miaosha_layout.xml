@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv_img_miaosha_home"
+        android:layout_width="40dp"
+        android:layout_height="55dp"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        app:failureImage="@mipmap/ic_launcher"
+        app:failureImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/ic_launcher"
+        app:placeholderImageScaleType="centerCrop" />
+    <TextView
+        android:id="@+id/miaosha_title"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="标题"
+        android:textSize="12dp"
+        android:textColor="@color/colorBlack"
+        />
+
+</LinearLayout>

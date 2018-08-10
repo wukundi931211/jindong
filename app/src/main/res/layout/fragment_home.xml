@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:searchview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+
+    >
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/sr1_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colortou">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <!--主页面 -->
+            <LinearLayout xmlns:mqv="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/fg_home"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                >
+
+                <com.youth.banner.Banner
+                    android:id="@+id/home_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.youth.banner.Banner>
+
+                <com.baiwei.tianlong.jindong.custom_view.SearchView
+                    android:id="@+id/searchview_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    searchview:left_background="@drawable/sao_kind"
+                    searchview:right_background="@drawable/dpj"
+                    searchview:search_hint_text="我的搜索框">
+
+                </com.baiwei.tianlong.jindong.custom_view.SearchView>
+            </RelativeLayout>
+                <!--主页面分类-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/home_fenlei_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="15dp">
+
+                </android.support.v7.widget.RecyclerView>
+                <!-- 跑马灯-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="京东快报"
+                        android:textColor="#000" />
+                    <!--跑马灯 -->
+                    <com.sunfusheng.marqueeview.MarqueeView
+                        android:id="@+id/home_mqv"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        mqv:mvAnimDuration="1000"
+                        mqv:mvDirection="bottom_to_top"
+                        mqv:mvInterval="3000"
+                        mqv:mvSingleLine="true"
+                        mqv:mvTextColor="#000000"
+                        mqv:mvTextSize="14sp">
+
+                    </com.sunfusheng.marqueeview.MarqueeView>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="#00000000" />
+
+                    <TextView
+                        android:id="@+id/home_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="更多" />
+                </LinearLayout>
+                <!-- 秒杀  发现好货-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/home_Second_kill"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="2"
+                        android:paddingLeft="10dp">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="2"
+                        android:background="@color/colorWhite"
+                        android:orientation="horizontal">
+                        <!--品质好货-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="品质好货"
+                                android:textColor="@color/colorRed"
+                                android:textSize="15sp" />
+
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:id="@+id/pinzhi_shop"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                mqv:actualImageResource="@mipmap/ic_launcher"
+                                mqv:actualImageScaleType="centerCrop"
+                                mqv:failureImage="@mipmap/ic_launcher"
+                                mqv:failureImageScaleType="centerCrop" />
+                        </LinearLayout>
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/pinzhi_shop1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            mqv:actualImageResource="@mipmap/ic_launcher"
+                            mqv:actualImageScaleType="centerCrop"
+                            mqv:failureImage="@mipmap/ic_launcher"
+                            mqv:failureImageScaleType="centerCrop" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!-- 品牌秒杀 品类秒杀 会买专辑 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <!-- 品牌秒杀 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="品牌秒杀"
+                            android:textColor="@color/colorRed"
+                            android:textSize="15sp" />
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/pinpai_miaosha_img1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            mqv:actualImageResource="@mipmap/ic_launcher"
+                            mqv:actualImageScaleType="centerCrop"
+                            mqv:failureImage="@mipmap/ic_launcher"
+                            mqv:failureImageScaleType="centerCrop" />
+                    </LinearLayout>
+                    <!-- 品类秒杀 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="品类秒杀"
+                            android:textColor="@color/colorRed"
+                            android:textSize="15sp" />
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/pinlei_miaosha_img2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            mqv:actualImageResource="@mipmap/ic_launcher"
+                            mqv:actualImageScaleType="centerCrop"
+                            mqv:failureImage="@mipmap/ic_launcher"
+                            mqv:failureImageScaleType="centerCrop" />
+                    </LinearLayout>
+                    <!-- 会买专辑 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="会买专辑"
+                            android:textColor="@color/colorRed"
+                            android:textSize="15sp" />
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/home_huimiao1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            mqv:actualImageResource="@mipmap/ic_launcher"
+                            mqv:actualImageScaleType="centerCrop"
+                            mqv:failureImage="@mipmap/ic_launcher"
+                            mqv:failureImageScaleType="centerCrop" />
+                    </LinearLayout>
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/home_huimiao2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        mqv:actualImageResource="@mipmap/ic_launcher"
+                        mqv:actualImageScaleType="centerCrop"
+                        mqv:failureImage="@mipmap/ic_launcher"
+                        mqv:failureImageScaleType="centerCrop" />
+                </LinearLayout>
+                <!--为你推荐-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="为你推荐"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/home_Recommended_for_you"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </ScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

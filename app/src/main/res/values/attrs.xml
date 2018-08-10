@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SearchView">
+        <attr name="left_image" format="string"/>
+        <attr name="left_background" format="reference"/>
+        <attr name="left_visibility" format="boolean"/>
+
+
+
+        <attr name="edit_search" format="string"/>
+        <attr name="search_background" format="reference"/>
+        <attr name="search_hint_text" format="string" />
+        <attr name="search_visibility" format="boolean"/>
+
+
+
+
+        <attr name="right_image" format="string"/>
+        <attr name="right_background" format="reference"/>
+        <attr name="right_visibility" format="boolean"/>
+
+    </declare-styleable>
+</resources>
