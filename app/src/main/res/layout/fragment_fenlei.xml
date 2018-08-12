@@ -6,18 +6,47 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     >
-
-    <com.baiwei.tianlong.jindong.custom_view.SearchView
+    <com.baiwei.tianlong.jindong.custom_view.MySearchView
         android:id="@+id/searchview_fenlei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="10dp"
         app:left_background="@drawable/sao_kind"
         app:right_background="@drawable/dpj"
-        app:search_hint_text="我的搜索框">
+        app:search_hint_text="618京东大狂欢">
 
-    </com.baiwei.tianlong.jindong.custom_view.SearchView>
+    </com.baiwei.tianlong.jindong.custom_view.MySearchView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/left_recycle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
 
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/timg" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_classify"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

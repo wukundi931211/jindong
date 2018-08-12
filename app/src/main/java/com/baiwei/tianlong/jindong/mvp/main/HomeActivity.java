@@ -3,18 +3,19 @@ package com.baiwei.tianlong.jindong.mvp.main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.baiwei.tianlong.jindong.R;
 
-import com.baiwei.tianlong.jindong.fragment.FragmentDingdan;
-import com.baiwei.tianlong.jindong.fragment.FragmentFaXian;
-import com.baiwei.tianlong.jindong.fragment.FragmentFenLei;
+
+import com.baiwei.tianlong.jindong.mvp.dingdan_gouwuche.FragmentDingdan;
+import com.baiwei.tianlong.jindong.mvp.faxian.FragmentFaXian;
+import com.baiwei.tianlong.jindong.mvp.fenlei.FragmentFenLei;
 import com.baiwei.tianlong.jindong.mvp.home.view.fragment.FragmentHome;
 import com.baiwei.tianlong.jindong.mvp.wode.view.FragmentWoDe;
-import com.jaeger.library.StatusBarUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,8 +29,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationB
     FrameLayout td;
 
     private FragmentHome fragmentHome;
-    private FragmentDingdan fragmentDingdan;
     private FragmentFenLei fragmentFenLei;
+    private FragmentDingdan fragmentDingdan;
     private FragmentWoDe fragmentWoDe;
     private FragmentFaXian fragmentFaXian;
 
@@ -41,12 +42,12 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationB
         //设置状态栏半透明
        // StatusBarUtil.setTranslucent(this,55);
         //设置状态栏全透明
-
+        //StatusBarUtil.setTransparent(HomeActivity.this);
         //透明状态栏
-      // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+      getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_home);
 
-        StatusBarUtil.setTransparent(HomeActivity.this);
+
         ButterKnife.bind(this);
 
         initview();
@@ -190,26 +191,5 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationB
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.td,fragmentDingdan).commit();
     }
-    //联动效果 去分类页面
-    public void  gotoFenLei(){
-        if (fragmentFenLei == null){
-            fragmentFenLei =FragmentFenLei.newInstance("分类");
-        }
-        getSupportFragmentManager().beginTransaction().replace(R.id.td,fragmentFenLei).commit();
-    }
-    //联动效果 去发现页面
-    public void  gotoFanXian(){
-        if (fragmentFaXian == null){
-            fragmentFaXian = FragmentFaXian.newInstance("发现");
-        }
-        getSupportFragmentManager().beginTransaction().replace(R.id.td,fragmentFaXian).commit();
-    }
 
-    public BottomNavigationBar getBottomNavigationBar() {
-        return bottomNavigationBar;
-    }
-
-    public FragmentFenLei getFragmentFenLei() {
-        return fragmentFenLei;
-    }
 }

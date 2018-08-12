@@ -6,11 +6,17 @@ import com.baiwei.tianlong.jindong.mvp.wode.model.beans.Logins;
 import com.baiwei.tianlong.jindong.mvp.wode.model.beans.WoDeBeans;
 import com.baiwei.tianlong.jindong.mvp.wode.view.WoDeIView;
 
+import org.reactivestreams.Subscriber;
+
+import java.lang.annotation.Annotation;
 import java.util.Map;
 
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
+import io.reactivex.subscribers.ResourceSubscriber;
 
 public class WoDePresenter extends BasePresenter<WoDeIView>{
 
@@ -29,7 +35,12 @@ public class WoDePresenter extends BasePresenter<WoDeIView>{
         moDeModel.login(map)
                    .subscribeOn(Schedulers.io())
                    .observeOn(AndroidSchedulers.mainThread())
-                   .subscribe(new DisposableSubscriber<Logins>() {
+                   .subscribe(new Observer<Logins>() {
+                       @Override
+                       public void onSubscribe(Disposable d) {
+                          compositeDisposable.add(d);
+                       }
+
                        @Override
                        public void onNext(Logins logins) {
                            if ("0".equals(logins.getCode())){
@@ -62,6 +73,7 @@ public class WoDePresenter extends BasePresenter<WoDeIView>{
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableSubscriber<WoDeBeans>() {
+
                     @Override
                     public void onNext(WoDeBeans woDeBeans) {
                         if ("0".equals(woDeBeans.getCode())){
@@ -84,6 +96,20 @@ public class WoDePresenter extends BasePresenter<WoDeIView>{
                     public void onComplete() {
 
                     }
+                    //
+                    Disposable disposable =new Disposable() {
+                        @Override
+                        public void dispose() {
+                            compositeDisposable.add(disposable);
+                        }
+
+                        @Override
+                        public boolean isDisposed() {
+                            return false;
+                        }
+                    };
+
                 });
+
     }
 }

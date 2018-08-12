@@ -9,6 +9,7 @@ import com.baiwei.tianlong.jindong.network.ConstantApi;
 import java.util.Map;
 
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -18,7 +19,7 @@ public interface WoDeApi {
        //登录
        @FormUrlEncoded
        @POST(ConstantApi.LOGIN)
-       Flowable<Logins> login(@FieldMap Map<String,String> map);
+       Observable<Logins> login(@FieldMap Map<String,String> map);
 
 
 

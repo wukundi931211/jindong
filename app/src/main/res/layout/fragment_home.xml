@@ -43,15 +43,16 @@
 
                 </com.youth.banner.Banner>
 
-                <com.baiwei.tianlong.jindong.custom_view.SearchView
+                <com.baiwei.tianlong.jindong.custom_view.MySearchView
                     android:id="@+id/searchview_home"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     searchview:left_background="@drawable/sao_kind"
+
                     searchview:right_background="@drawable/dpj"
                     searchview:search_hint_text="我的搜索框">
 
-                </com.baiwei.tianlong.jindong.custom_view.SearchView>
+                </com.baiwei.tianlong.jindong.custom_view.MySearchView>
             </RelativeLayout>
                 <!--主页面分类-->
                 <android.support.v7.widget.RecyclerView

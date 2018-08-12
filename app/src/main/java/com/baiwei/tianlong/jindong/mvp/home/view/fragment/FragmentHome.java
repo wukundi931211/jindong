@@ -16,9 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baiwei.tianlong.jindong.R;
-import com.baiwei.tianlong.jindong.activity.SearchActivity;
+import com.baiwei.tianlong.jindong.mvp.search.SearchActivity;
 import com.baiwei.tianlong.jindong.base.BaseFragment;
-import com.baiwei.tianlong.jindong.custom_view.SearchView;
+import com.baiwei.tianlong.jindong.custom_view.MySearchView;
+
 import com.baiwei.tianlong.jindong.mvp.home.model.beans.HomeBeans;
 import com.baiwei.tianlong.jindong.mvp.home.model.beans.HomeFenLeiBeans;
 import com.baiwei.tianlong.jindong.mvp.home.presenter.HomePresenter;
@@ -26,10 +27,7 @@ import com.baiwei.tianlong.jindong.mvp.home.view.HomeView;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.HomeFenLeiAdapter;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.MiaoShaAdapter;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.MyTuiJianAdapter;
-import com.baiwei.tianlong.jindong.mvp.main.HomeActivity;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.core.ImagePipeline;
 import com.scwang.smartrefresh.header.WaveSwipeHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -57,7 +55,7 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
     @BindView(R.id.home_banner)
     Banner homeBanner;
     @BindView(R.id.searchview_home)
-    SearchView searchviewHome;
+    MySearchView searchviewHome;
     @BindView(R.id.fg_home)
     RelativeLayout fgHome;
     @BindView(R.id.home_mqv)
@@ -85,6 +83,7 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
     RecyclerView homeFenleiRecycler;
     @BindView(R.id.home_Second_kill)
     RecyclerView homeSecondKill;
+
     Unbinder unbinder1;
     private HomeFenLeiAdapter homeFenLeiAdapter;
     private GridLayoutManager gridLayoutManager;
@@ -165,7 +164,7 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
     protected void initListener() {
         super.initListener();
         //自定布局单击事件
-        searchviewHome.setOnMyTitleViewClickListener(new SearchView.OnMyTitleViewClickListener() {
+        searchviewHome.setOnMyTitleViewClickListener(new MySearchView.OnMyTitleViewClickListener() {
             @Override
             public void leftClick() {
 
@@ -323,8 +322,7 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
         homeFenLeiAdapter.setOnItemClickListener(new HomeFenLeiAdapter.OnItemClickListener() {
             @Override
             public void OnItenClick(View view, int position) {
-                HomeActivity homeActivity = (HomeActivity) getActivity();
-                homeActivity.gotoFenLei();
+
             }
         });
 
@@ -344,15 +342,8 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
-        //清空集合
-        list_data.clear();
-        list_title.clear();
-        list_icon.clear();
-        list_info.clear();
         //取消绑定
         unbinder1.unbind();
-
     }
 
     @Override

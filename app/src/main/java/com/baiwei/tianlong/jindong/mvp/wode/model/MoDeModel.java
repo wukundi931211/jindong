@@ -7,10 +7,11 @@ import com.baiwei.tianlong.jindong.utils.RetrofitcManager;
 import java.util.Map;
 
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
 
 public class MoDeModel implements WoDeApi{
     @Override
-    public Flowable<Logins> login(Map<String, String> map) {
+    public Observable<Logins> login(Map<String, String> map) {
         return RetrofitcManager.getDefault().create(WoDeApi.class).login(map);
     }
 

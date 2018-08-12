@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SearchView extends LinearLayout {
+public class MySearchView extends LinearLayout {
 
 
     @BindView(R.id.btn_left)
@@ -27,35 +27,35 @@ public class SearchView extends LinearLayout {
     @BindView(R.id.btn_right)
     Button btnRight;
 
-    public SearchView(Context context) {
+    public MySearchView(Context context) {
         super(context);
 
     }
 
-    public SearchView(Context context, @Nullable AttributeSet attrs) {
+    public MySearchView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
 
     }
     @SuppressLint("ResourceAsColor")
-    public SearchView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MySearchView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         //自定义布局的样式
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SearchView, 0, 0);
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MySearchView, 0, 0);
 
         //左边扫一扫
-        String left_image = typedArray.getString(R.styleable.SearchView_left_image);
-        int left_Background = typedArray.getResourceId(R.styleable.SearchView_left_background, R.color.colorRed);
-        boolean left_Visibility = typedArray.getBoolean(R.styleable.SearchView_left_visibility, true);
+        String left_image = typedArray.getString(R.styleable.MySearchView_left_image);
+        int left_Background = typedArray.getResourceId(R.styleable.MySearchView_left_background, R.color.colorRed);
+        boolean left_Visibility = typedArray.getBoolean(R.styleable.MySearchView_left_visibility, true);
 
         //editText
-        String searchText = typedArray.getString(R.styleable.SearchView_edit_search);
-        String searchHintText = typedArray.getString(R.styleable.SearchView_search_hint_text);
-        int searchBackground = typedArray.getResourceId(R.styleable.SearchView_search_background, R.color.colorWhite);
-        boolean searchVisibility = typedArray.getBoolean(R.styleable.SearchView_search_visibility, true);
+        String searchText = typedArray.getString(R.styleable.MySearchView_edit_search);
+        String searchHintText = typedArray.getString(R.styleable.MySearchView_search_hint_text);
+        int searchBackground = typedArray.getResourceId(R.styleable.MySearchView_search_background, R.color.colortou);
+        boolean searchVisibility = typedArray.getBoolean(R.styleable.MySearchView_search_visibility, true);
 
-        String right_image = typedArray.getString(R.styleable.SearchView_right_image);
-        int right_Background = typedArray.getResourceId(R.styleable.SearchView_right_background, R.color.colorRed);
-        boolean right_Visibility = typedArray.getBoolean(R.styleable.SearchView_right_visibility, true);
+        String right_image = typedArray.getString(R.styleable.MySearchView_right_image);
+        int right_Background = typedArray.getResourceId(R.styleable.MySearchView_right_background, R.color.colorRed);
+        boolean right_Visibility = typedArray.getBoolean(R.styleable.MySearchView_right_visibility, true);
 
 
 

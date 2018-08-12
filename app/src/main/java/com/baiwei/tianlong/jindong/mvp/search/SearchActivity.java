@@ -1,4 +1,4 @@
-package com.baiwei.tianlong.jindong.activity;
+package com.baiwei.tianlong.jindong.mvp.search;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

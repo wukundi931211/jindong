@@ -14,8 +14,8 @@ public class ConstantApi {
     public static final String FEILEI_CATAGORY = "product/getCatagory";
     //子分类
     public static final String FEILEI_PRODUCT = "product/getProductCatagory";
-
-
+    //搜索页面
+    public static final String SEARCH_PRODUCTS = "product/searchProducts";
 
     //登录
     public static final String LOGIN = "user/login";

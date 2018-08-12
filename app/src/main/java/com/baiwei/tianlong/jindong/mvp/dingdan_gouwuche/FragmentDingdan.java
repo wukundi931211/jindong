@@ -1,4 +1,4 @@
-package com.baiwei.tianlong.jindong.fragment;
+package com.baiwei.tianlong.jindong.mvp.dingdan_gouwuche;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,20 +10,20 @@ import android.view.ViewGroup;
 
 import com.baiwei.tianlong.jindong.R;
 
-public class FragmentFaXian extends Fragment{
+public class FragmentDingdan extends Fragment{
 
-    public static FragmentFaXian newInstance(String param1) {
-        FragmentFaXian fragmentFaXian = new FragmentFaXian();
+    public static FragmentDingdan newInstance(String param1) {
+        FragmentDingdan fragmentDingdan = new FragmentDingdan();
         Bundle args = new Bundle();
         args.putString("agrs1", param1);
-        fragmentFaXian.setArguments(args);
-        return fragmentFaXian;
+        fragmentDingdan.setArguments(args);
+        return fragmentDingdan;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_faxian,container,false);
+        View view = inflater.inflate(R.layout.fragment_dingdan,container,false);
 
         return view;
     }

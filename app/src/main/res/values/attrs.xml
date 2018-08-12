@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SearchView">
+    <declare-styleable name="MySearchView">
         <attr name="left_image" format="string"/>
         <attr name="left_background" format="reference"/>
         <attr name="left_visibility" format="boolean"/>

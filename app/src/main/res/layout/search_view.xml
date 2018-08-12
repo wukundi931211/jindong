@@ -37,8 +37,6 @@
                 android:background="#fff"
                 android:focusable="false"
                 android:gravity="center_horizontal"
-                android:drawableLeft="@drawable/a_4"
-                android:drawableRight="@drawable/root"
                 android:textColor="#000" />
 
         </RelativeLayout>

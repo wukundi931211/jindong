@@ -77,6 +77,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         imagePipeline.clearMemoryCaches();
         imagePipeline.clearDiskCaches();
         imagePipeline.clearCaches();
+
         unbinder.unbind();
     }
 }
