@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -16,6 +18,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.baiwei.tianlong.jindong.gen'
+        targetGenDir 'src/main/java'
+    }
+
 }
 
 dependencies {
@@ -49,11 +57,11 @@ dependencies {
 
     implementation 'com.android.support:design:28.0.0-alpha3'
 
-//RecyclerView 上啦加载下拉刷新 https://github.com/XRecyclerView/XRecyclerView
+    //RecyclerView 上啦加载下拉刷新 https://github.com/XRecyclerView/XRecyclerView
     implementation('com.jcodecraeer:xrecyclerview:1.5.9') {
         exclude group: 'com.android.support'
     }
-//状态栏
+    //状态栏
     implementation "com.jaeger.statusbarutil:library:1.5.1"
     //网络请求重要的依赖
     //Retrofit
@@ -72,6 +80,8 @@ dependencies {
     implementation 'com.sunfusheng:marqueeview:1.3.3'
     //Glide 加载图片
     implementation 'com.github.bumptech.glide:glide:4.7.1'
-
+    //GreenDao
+    implementation "org.greenrobot:greendao:3.0.1"
+    implementation "org.greenrobot:greendao-generator:3.0.0"
 
 }

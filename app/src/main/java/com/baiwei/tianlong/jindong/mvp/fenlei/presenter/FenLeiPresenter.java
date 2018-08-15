@@ -16,19 +16,16 @@ import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
 
 public class FenLeiPresenter extends BasePresenter<FenLeiView> {
-
     //注入model层
     private FenLeiModelTask fenLeiModelTask;
 
     public FenLeiPresenter(FenLeiView view) {
         super(view);
     }
-
     @Override
     protected void initModel() {
         fenLeiModelTask = new FenLeiModelTask();
     }
-
     public void getLeftData(){
         fenLeiModelTask.getLeftData()
                         .subscribeOn(Schedulers.io())
@@ -46,31 +43,25 @@ public class FenLeiPresenter extends BasePresenter<FenLeiView> {
                                         }
                                     }
                             }
-
                             @Override
                             public void onError(Throwable t) {
                                     if (view!=null){
                                         view.getLeftFailed(t.toString());
                                     }
                             }
-
                             @Override
                             public void onComplete() {
-
                             }
-
                             Disposable disposable = new Disposable() {
                                 @Override
                                 public void dispose() {
                                     disposable.dispose();
                                 }
-
                                 @Override
                                 public boolean isDisposed() {
                                     return false;
                                 }
                             };
-
                         });
     }
 
@@ -91,31 +82,26 @@ public class FenLeiPresenter extends BasePresenter<FenLeiView> {
                             }
                         }
                     }
-
                     @Override
                     public void onError(Throwable t) {
                         if (view!=null){
                             view.getRightFailed(t.toString());
                         }
                     }
-
                     @Override
                     public void onComplete() {
 
                     }
-
                     Disposable disposable = new Disposable() {
                         @Override
                         public void dispose() {
                             disposable.dispose();
                         }
-
                         @Override
                         public boolean isDisposed() {
                             return false;
                         }
                     };
-
                 });
     }
 }

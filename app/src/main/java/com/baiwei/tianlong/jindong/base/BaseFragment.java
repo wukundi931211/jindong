@@ -73,10 +73,10 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         //Fresco 清理缓存
-        ImagePipeline imagePipeline = Fresco.getImagePipeline();
-        imagePipeline.clearMemoryCaches();
-        imagePipeline.clearDiskCaches();
-        imagePipeline.clearCaches();
+//        ImagePipeline imagePipeline = Fresco.getImagePipeline();
+//        imagePipeline.clearMemoryCaches();
+//        imagePipeline.clearDiskCaches();
+//        imagePipeline.clearCaches();
 
         unbinder.unbind();
     }

@@ -66,7 +66,6 @@ public class MyGridAdapter extends RecyclerView.Adapter<MyGridAdapter.MyGridHold
             ButterKnife.bind(this, itemView);
         }
     }
-
     OnItemClickListener onItemClickListener;
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {

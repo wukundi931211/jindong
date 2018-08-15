@@ -19,7 +19,6 @@ import butterknife.OnClick;
 
 public class MySearchView extends LinearLayout {
 
-
     @BindView(R.id.btn_left)
     Button btnLeft;
     @BindView(R.id.et_search)

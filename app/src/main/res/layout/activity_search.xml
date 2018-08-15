@@ -54,13 +54,13 @@
             android:padding="10dp"
             android:text="搜索历史" />
 
-        <com.jensen.myjd.mvp.search.view.FlowLayout
+        <com.baiwei.tianlong.jindong.mvp.search.view.FlowLayout
             android:id="@+id/fl_show_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible">
 
-        </com.jensen.myjd.mvp.search.view.FlowLayout>
+        </com.baiwei.tianlong.jindong.mvp.search.view.FlowLayout>
 
         <TextView
             android:id="@+id/tv_history_search"
@@ -185,7 +185,8 @@
             android:orientation="vertical"
             android:visibility="visible">
 
-            <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/srl_show_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -194,7 +195,9 @@
                     android:id="@+id/rv_show_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#fff"></android.support.v7.widget.RecyclerView>
+                    android:background="#fff">
+
+                </android.support.v7.widget.RecyclerView>
             </com.scwang.smartrefresh.layout.SmartRefreshLayout>
         </LinearLayout>
 
@@ -205,7 +208,8 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/srl_grid_show_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -214,7 +218,9 @@
                     android:id="@+id/rv_grid_show_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#fff"></android.support.v7.widget.RecyclerView>
+                    android:background="#fff">
+
+                </android.support.v7.widget.RecyclerView>
             </com.scwang.smartrefresh.layout.SmartRefreshLayout>
         </LinearLayout>
     </LinearLayout>

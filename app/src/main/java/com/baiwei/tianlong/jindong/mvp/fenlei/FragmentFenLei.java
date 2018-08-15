@@ -28,7 +28,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements FenLeiView {
-
     @BindView(R.id.searchview_fenlei)
     MySearchView searchviewFenlei;
     @BindView(R.id.left_recycle)
@@ -44,19 +43,15 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
         fragmentFenLei.setArguments(args);
         return fragmentFenLei;
     }
-
     private static final String TAG = "ClassifyFragment--";
     private String cid = "1";
     private int arg;
     private LeftAdapter leftAdapter;
     private int selectedItem;
-
-
     @Override
     protected Object provideBindView() {
         return this;
     }
-
     @Override
     protected int provideFragmentLayoutID() {
         return R.layout.fragment_fenlei;
@@ -72,7 +67,6 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
     protected void initView(View view) {
         super.initView(view);
     }
-
     //展示数据
     @Override
     protected void initData() {
@@ -81,7 +75,6 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
             presenter.getLeftData();
         }
     }
-
     //监听
     @Override
     protected void initListener() {
@@ -103,37 +96,28 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
             }
         });
     }
-
     @Override
     public void getLeftDataSuccess(LeftFenLeiBeans leftFenLeiBeans) {
         List<LeftFenLeiBeans.DataBean> data = leftFenLeiBeans.getData();
-
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
-
         leftAdapter = new LeftAdapter(data,getContext());
-
         leftAdapter.setSelectedItem(0);
-
         if (leftRecycle!=null){
             leftRecycle.setAdapter(leftAdapter);
             leftRecycle.setLayoutManager(manager);
-
             leftAdapter.setListener(new LeftAdapter.ItemClickListencer() {
                 @Override
                 public void onItemClick(LeftFenLeiBeans.DataBean dataBean, int position) {
                     int cid = dataBean.getCid();
-
                     presenter.getRightData(cid+"");
                     leftAdapter.setSelectedItem(position);
                     leftAdapter.notifyDataSetChanged();
                 }
             });
         }
-
         presenter.getRightData(cid);
     }
-
     @Override
     public void getLeftFailed(String error) {
         Log.d(TAG, "getLeftDataFailed: " + error);
@@ -143,9 +127,7 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
     public void getRightDataSuccess(RightFenLeiBeans rightFenLeiBeans) {
         List<RightFenLeiBeans.DataBean> data = rightFenLeiBeans.getData();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
         //适配器
         RightAdapter rightAdapter = new RightAdapter(data,getContext());
         if (rvClassify!=null){
@@ -153,12 +135,7 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
             rvClassify.setAdapter(rightAdapter);
 
         }
-
-
-
-
     }
-
     @Override
     public void getRightFailed(String error) {
         Log.d(TAG, "getRightDataFailed: " + error);
@@ -176,7 +153,6 @@ public class FragmentFenLei extends BaseFragment<FenLeiPresenter> implements Fen
         unbinder = ButterKnife.bind(this, rootView);
         return rootView;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

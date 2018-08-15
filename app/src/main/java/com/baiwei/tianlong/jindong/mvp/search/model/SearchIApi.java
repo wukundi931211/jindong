@@ -10,6 +10,8 @@ import retrofit2.http.Query;
 public interface SearchIApi {
     @GET(ConstantApi.SEARCH_PRODUCTS)
     Flowable<SearchBeans> getSearchProductsData(
-         @Query("keywords")String keywords
+         @Query("keywords")String keywords,
+         @Query("page") String page,
+         @Query("sort") String sort
     );
 }

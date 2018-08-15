@@ -24,8 +24,9 @@
         <activity android:name=".mvp.main.HomeActivity" />
         <activity android:name=".mvp.search.SearchActivity" />
         <activity android:name=".mvp.login.LoginActiity" />
-        <activity android:name=".mvp.settingactivity.SettingActivity"></activity>
-        <activity android:name=".mvp.fenlei.presenter.FenLeiPresenter" />
+        <activity android:name=".mvp.showactivity.ShowActivity" />
+        <activity android:name=".mvp.register.view.activity.RegisterActivity"/>
+        <activity android:name=".mvp.update_personal.PersonalActivity"></activity>
     </application>
 
 </manifest>

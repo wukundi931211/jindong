@@ -13,19 +13,13 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitcManager {
-
     private final Retrofit retrofit;
-
     private static class SingHolder{
         private static final  RetrofitcManager _INSTANT = new RetrofitcManager(ConstantApi.BASE_URL);
     }
-
-
     public static RetrofitcManager getDefault(){
       return  SingHolder._INSTANT;
     }
-
-
     public RetrofitcManager(String baseUrl) {
         this.retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -33,7 +27,6 @@ public class RetrofitcManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
-
     //网络拦截器
     private OkHttpClient buildOkHttpClient(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
@@ -43,7 +36,6 @@ public class RetrofitcManager {
             }
         });
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         return new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .connectTimeout(5, TimeUnit.SECONDS)
@@ -52,7 +44,6 @@ public class RetrofitcManager {
                 .addInterceptor(interceptor)
                 .build();
     }
-
     public <T> T create(Class<T> tClass) {
         return retrofit.create(tClass);
     }

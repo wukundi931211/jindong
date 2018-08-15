@@ -27,6 +27,7 @@ import com.baiwei.tianlong.jindong.mvp.home.view.HomeView;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.HomeFenLeiAdapter;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.MiaoShaAdapter;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.MyTuiJianAdapter;
+import com.baiwei.tianlong.jindong.mvp.showactivity.ShowActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.scwang.smartrefresh.header.WaveSwipeHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -245,17 +246,27 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
         homeBanner.start();
 
         //秒杀数据
-        List<HomeBeans.MiaoshaBean.ListBeanX> list1 = homeBeans.getMiaosha().getList();
+        final List<HomeBeans.MiaoshaBean.ListBeanX> list1 = homeBeans.getMiaosha().getList();
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 4);
         layoutManager.setOrientation(GridLayoutManager.VERTICAL);
         homeSecondKill.setLayoutManager(layoutManager);
         //设置适配器
         MiaoShaAdapter miaoShaAdapter = new MiaoShaAdapter(list1, getContext());
         homeSecondKill.setAdapter(miaoShaAdapter);
+        miaoShaAdapter.setOnItemClickListener(new MiaoShaAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(View view, int position) {
+                int pid = list1.get(position).getPid();
+                Log.d(TAG, "OnItemClick: " + pid);
+                Intent intent = new Intent(getContext(), ShowActivity.class);
+                intent.putExtra("pid", "" + pid);
+                startActivityForResult(intent, 1);
+            }
+        });
 
 
         //推荐数据
-        List<HomeBeans.TuijianBean.ListBean> list = homeBeans.getTuijian().getList();
+        final List<HomeBeans.TuijianBean.ListBean> list = homeBeans.getTuijian().getList();
         Log.i("TAG", list + "");
         if (page == 1) {
             list_ad.clear();
@@ -275,7 +286,11 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
         adapter.setOnItemClickListener(new MyTuiJianAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, int position) {
-
+                int pid = list.get(position).getPid();
+                Log.d(TAG, "OnItemClick: " + pid);
+                Intent intent = new Intent(getContext(), ShowActivity.class);
+                intent.putExtra("pid", "" + pid);
+                startActivityForResult(intent, 1);
             }
         });
 
