@@ -1,11 +1,17 @@
 package com.baiwei.tianlong.jindong.mvp.wode.model.beans;
 
-public class Logins {
+/**
+ * @Author JenSenLeung.
+ * @Time 2018/7/12 下午 9:21.
+ * @Description This is LoginBean.
+ */
+public class LoginBean {
+
 
     /**
      * msg : 登录成功
      * code : 0
-     * data : {"age":null,"appkey":"b01b30bdbd6c5f13","appsecret":"B14DF7C1A2FE24D47312619F8BC40DA5","createtime":"2018-08-10T14:48:42","email":null,"fans":null,"follow":null,"gender":null,"icon":"https://www.zhaoapi.cn/images/1533649586292photo.png","latitude":null,"longitude":null,"mobile":"15934599471","money":null,"nickname":"夜班一龙","password":"8F669074CAF5513351A2DE5CC22AC04C","praiseNum":null,"token":"66D03D8A530C474868FA11E2D7ACC409","uid":16842,"userId":null,"username":"15934599471"}
+     * data : {"age":null,"appkey":"83278f4b3dfa16ef","appsecret":"A6C0FD1762C717977ECB1EBC08A4A1C4","createtime":"2018-07-16T18:45:04","email":null,"fans":null,"follow":null,"gender":null,"icon":"https://www.zhaoapi.cn/images/1531737604961photo.png","latitude":null,"longitude":null,"mobile":"14725873698","money":null,"nickname":"昵称测试","password":"8F669074CAF5513351A2DE5CC22AC04C","praiseNum":null,"token":"39844C3D5E00DC6E322B81212A8155FF","uid":15603,"userId":null,"username":"14725873698"}
      */
 
     private String msg;
@@ -39,25 +45,25 @@ public class Logins {
     public static class DataBean {
         /**
          * age : null
-         * appkey : b01b30bdbd6c5f13
-         * appsecret : B14DF7C1A2FE24D47312619F8BC40DA5
-         * createtime : 2018-08-10T14:48:42
+         * appkey : 83278f4b3dfa16ef
+         * appsecret : A6C0FD1762C717977ECB1EBC08A4A1C4
+         * createtime : 2018-07-16T18:45:04
          * email : null
          * fans : null
          * follow : null
          * gender : null
-         * icon : https://www.zhaoapi.cn/images/1533649586292photo.png
+         * icon : https://www.zhaoapi.cn/images/1531737604961photo.png
          * latitude : null
          * longitude : null
-         * mobile : 15934599471
+         * mobile : 14725873698
          * money : null
-         * nickname : 夜班一龙
+         * nickname : 昵称测试
          * password : 8F669074CAF5513351A2DE5CC22AC04C
          * praiseNum : null
-         * token : 66D03D8A530C474868FA11E2D7ACC409
-         * uid : 16842
+         * token : 39844C3D5E00DC6E322B81212A8155FF
+         * uid : 15603
          * userId : null
-         * username : 15934599471
+         * username : 14725873698
          */
 
         private Object age;

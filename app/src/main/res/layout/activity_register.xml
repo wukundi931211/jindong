@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:left_background="@drawable/back"
         app:right_background="@drawable/service"
-        app:search_background="@color/colorAccent"
+        app:search_background="@color/colorWhite"
         app:search_hint_text="手机号快速注册">
 
     </com.baiwei.tianlong.jindong.custom_view.MySearchView>

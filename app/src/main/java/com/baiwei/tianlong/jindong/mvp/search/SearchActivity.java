@@ -30,15 +30,13 @@ import com.baiwei.tianlong.jindong.mvp.search.view.FlowLayout;
 import com.baiwei.tianlong.jindong.mvp.search.view.SerchView;
 import com.baiwei.tianlong.jindong.mvp.search.view.adapter.MySearchAdapter;
 import com.baiwei.tianlong.jindong.mvp.search.view.adapter.MySearchGridAdapter;
-import com.baiwei.tianlong.jindong.mvp.showactivity.ShowActivity;
+import com.baiwei.tianlong.jindong.mvp.show.ShowActivity;
 import com.baiwei.tianlong.jindong.network.DaoManager;
 import com.scwang.smartrefresh.header.FlyRefreshHeader;
 import com.scwang.smartrefresh.header.FunGameBattleCityHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
-
-import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.ArrayList;
 import java.util.List;

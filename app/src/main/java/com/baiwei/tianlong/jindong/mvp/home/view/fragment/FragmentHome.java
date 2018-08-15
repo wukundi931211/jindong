@@ -27,7 +27,7 @@ import com.baiwei.tianlong.jindong.mvp.home.view.HomeView;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.HomeFenLeiAdapter;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.MiaoShaAdapter;
 import com.baiwei.tianlong.jindong.mvp.home.view.adapter.MyTuiJianAdapter;
-import com.baiwei.tianlong.jindong.mvp.showactivity.ShowActivity;
+import com.baiwei.tianlong.jindong.mvp.show.ShowActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.scwang.smartrefresh.header.WaveSwipeHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;

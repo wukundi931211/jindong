@@ -20,6 +20,7 @@ import com.baiwei.tianlong.jindong.custom_view.MySearchView;
 import com.baiwei.tianlong.jindong.mvp.login.model.beans.LoginsActivityBeans;
 import com.baiwei.tianlong.jindong.mvp.login.presenter.LoginPresenter;
 import com.baiwei.tianlong.jindong.mvp.login.view.LoginView;
+import com.baiwei.tianlong.jindong.mvp.register.view.activity.RegisterActivity;
 import com.baiwei.tianlong.jindong.mvp.update_personal.PersonalActivity;
 
 import java.util.HashMap;
@@ -118,6 +119,11 @@ public class LoginActiity extends BaseActivity<LoginPresenter> implements LoginV
          //显示登录成功
         Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent();
+        setResult(8, intent);
+        finish();
+
+
         //储存登录状态
          sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
          //储存sharedPreferences 储存的库的名字
@@ -130,10 +136,7 @@ public class LoginActiity extends BaseActivity<LoginPresenter> implements LoginV
          editor.putBoolean("isLogin",true);
          editor.commit();
 
-         //回调显示
-         Intent intent = getIntent();
-         setResult(8,intent);
-         finish();
+
     }
 
     @Override
@@ -154,7 +157,7 @@ public class LoginActiity extends BaseActivity<LoginPresenter> implements LoginV
     }
 
     //获取登录信息
-    @OnClick({ R.id.btn_login_login,R.id.tv_reg_login, R.id.tv_other_login})
+    @OnClick({ R.id.btn_login_login,R.id.tv_reg_login, R.id.tv_other_login,R.id.iv_wx_login_login,R.id.iv_qq_login_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             //登录单击事件
@@ -166,12 +169,14 @@ public class LoginActiity extends BaseActivity<LoginPresenter> implements LoginV
                 map.put("password",password);
                 //把数据存储到p层 请求数据
                 presenter.Login(map);
+
+
                 break;
 
 
                 //去注册
             case R.id.tv_reg_login:
-                Intent intent1 = new Intent(LoginActiity.this, PersonalActivity.class);
+                Intent intent1 = new Intent(LoginActiity.this, RegisterActivity.class);
                 startActivityForResult(intent1,1);
                 break;
 
@@ -179,6 +184,12 @@ public class LoginActiity extends BaseActivity<LoginPresenter> implements LoginV
                 Toast.makeText(this, "敬请期待", Toast.LENGTH_SHORT).show();
                 break;
 
+                case R.id.iv_wx_login_login:
+
+                    break;
+                case R.id.iv_qq_login_login:
+
+                    break;
         }
     }
 

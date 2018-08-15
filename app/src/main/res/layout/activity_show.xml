@@ -1,9 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mvp.showactivity.ShowActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".mvp.show.ShowActivity">
+    <LinearLayout
+        android:id="@+id/ll_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <com.baiwei.tianlong.jindong.custom_view.MySearchView
+            android:id="@+id/mtv_title_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:left_background="@drawable/back"
+            app:right_background="@drawable/share"
+            app:search_background="@color/colorAccent"
+            app:search_hint_text="商品详情"></com.baiwei.tianlong.jindong.custom_view.MySearchView>
+
+        <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/iv_product_icon_show"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:padding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_product_price_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="价格"
+                android:textColor="#f00"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_product_title_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="标题"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_product_subhead_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="标题"
+                android:textColor="#f00"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/sdv_seller_icon_show"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/tv_seller_name_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="商家"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_shopProvide_show"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/lianxi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="供应商"
+                android:textColor="#000"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_seller_show"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/dianpu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="店铺"
+                android:textColor="#000"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_shopCar_show"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/shopcar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="购物车"
+                android:textColor="#000"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_product_show"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/holo_orange_dark"
+            android:text="加入购物车"
+            android:textColor="#fff"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btn_buy_product_show"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="#f00"
+            android:text="立即购买"
+            android:textColor="#fff"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

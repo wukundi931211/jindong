@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baiwei.tianlong.jindong.R;
-import com.baiwei.tianlong.jindong.mvp.wode.model.beans.WoDeBeans;
+import com.baiwei.tianlong.jindong.mvp.wode.model.beans.HomeAdBean;
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -21,10 +21,10 @@ import butterknife.ButterKnife;
 
 public class MyTuiJianAdapter extends RecyclerView.Adapter<MyTuiJianAdapter.TuiJianViewHolder>{
 
-    private transient List<WoDeBeans.TuijianBean.ListBean> list;
+    private transient List<HomeAdBean.TuijianBean.ListBean> list;
     private Context context;
 
-    public MyTuiJianAdapter(List<WoDeBeans.TuijianBean.ListBean> list, Context context) {
+    public MyTuiJianAdapter(List<HomeAdBean.TuijianBean.ListBean> list, Context context) {
         this.list = list;
         this.context = context;
     }

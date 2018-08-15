@@ -1,4 +1,4 @@
-package com.baiwei.tianlong.jindong.mvp.showactivity;
+package com.baiwei.tianlong.jindong.mvp.show;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

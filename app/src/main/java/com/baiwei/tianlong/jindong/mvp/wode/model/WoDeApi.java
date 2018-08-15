@@ -2,8 +2,8 @@ package com.baiwei.tianlong.jindong.mvp.wode.model;
 
 import android.text.GetChars;
 
-import com.baiwei.tianlong.jindong.mvp.wode.model.beans.Logins;
-import com.baiwei.tianlong.jindong.mvp.wode.model.beans.WoDeBeans;
+import com.baiwei.tianlong.jindong.mvp.wode.model.beans.HomeAdBean;
+import com.baiwei.tianlong.jindong.mvp.wode.model.beans.LoginBean;
 import com.baiwei.tianlong.jindong.network.ConstantApi;
 
 import java.util.Map;
@@ -19,10 +19,10 @@ public interface WoDeApi {
        //登录
        @FormUrlEncoded
        @POST(ConstantApi.LOGIN)
-       Observable<Logins> login(@FieldMap Map<String,String> map);
+       Observable<LoginBean> login(@FieldMap Map<String,String> map);
 
 
 
        @GET(ConstantApi.WO_AD)
-       Flowable<WoDeBeans> getWoDeData();
+       Flowable<HomeAdBean> getWoDeData();
 }

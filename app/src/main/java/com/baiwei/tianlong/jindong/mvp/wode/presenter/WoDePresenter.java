@@ -2,8 +2,9 @@ package com.baiwei.tianlong.jindong.mvp.wode.presenter;
 
 import com.baiwei.tianlong.jindong.base.BasePresenter;
 import com.baiwei.tianlong.jindong.mvp.wode.model.MoDeModel;
-import com.baiwei.tianlong.jindong.mvp.wode.model.beans.Logins;
-import com.baiwei.tianlong.jindong.mvp.wode.model.beans.WoDeBeans;
+import com.baiwei.tianlong.jindong.mvp.wode.model.beans.HomeAdBean;
+import com.baiwei.tianlong.jindong.mvp.wode.model.beans.LoginBean;
+
 import com.baiwei.tianlong.jindong.mvp.wode.view.WoDeIView;
 
 import org.reactivestreams.Subscriber;
@@ -35,14 +36,14 @@ public class WoDePresenter extends BasePresenter<WoDeIView>{
         moDeModel.login(map)
                    .subscribeOn(Schedulers.io())
                    .observeOn(AndroidSchedulers.mainThread())
-                   .subscribe(new Observer<Logins>() {
+                   .subscribe(new Observer<LoginBean>() {
                        @Override
                        public void onSubscribe(Disposable d) {
                           compositeDisposable.add(d);
                        }
 
                        @Override
-                       public void onNext(Logins logins) {
+                       public void onNext(LoginBean logins) {
                            if ("0".equals(logins.getCode())){
                                 if (view!=null){
                                    view.getLoginDataSuccess(logins);
@@ -72,24 +73,24 @@ public class WoDePresenter extends BasePresenter<WoDeIView>{
         moDeModel.getWoDeData()
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableSubscriber<WoDeBeans>() {
+                .subscribe(new DisposableSubscriber<HomeAdBean>() {
 
                     @Override
-                    public void onNext(WoDeBeans woDeBeans) {
-                        if ("0".equals(woDeBeans.getCode())){
+                    public void onNext(HomeAdBean homeAdBean) {
+                        if ("0".equals(homeAdBean.getCode())){
                             if (view!=null){
-                                view.getWoDeDataSuccess(woDeBeans);
+                                view.getMyCenterDataSuccess(homeAdBean);
                             }
                         }else {
                             if (view!=null){
-                                view.getWoDeDataError(woDeBeans.getMsg());
+                                view.getMyCenterDataFailed(homeAdBean.getMsg());
                             }
                         }
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        view.getLoginDataFailed(t.toString());
+                        view.getMyCenterDataFailed(t.toString());
                     }
 
                     @Override
