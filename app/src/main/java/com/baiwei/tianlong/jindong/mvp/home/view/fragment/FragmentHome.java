@@ -320,7 +320,7 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
         Log.d(TAG, "getHomeDataFailed" + error);
     }
 
-    //得到主页面布局
+    //得到主页面布局分类
     @Override
     public void getHomeFenleiDataSuccess(HomeFenLeiBeans homeFenLeiBeans) {
         List<HomeFenLeiBeans.DataBean> data = homeFenLeiBeans.getData();
@@ -333,7 +333,7 @@ public class FragmentHome extends BaseFragment<HomePresenter> implements HomeVie
             homeFenleiRecycler.setLayoutManager(gridLayoutManager);
             homeFenleiRecycler.setAdapter(homeFenLeiAdapter);
         }
-        //单击事件
+        //TODO 单击事件
         homeFenLeiAdapter.setOnItemClickListener(new HomeFenLeiAdapter.OnItemClickListener() {
             @Override
             public void OnItenClick(View view, int position) {

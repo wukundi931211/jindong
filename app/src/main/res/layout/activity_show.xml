@@ -18,10 +18,14 @@
             android:layout_height="wrap_content"
             app:left_background="@drawable/back"
             app:right_background="@drawable/share"
-            app:search_background="@color/colorAccent"
-            app:search_hint_text="商品详情"></com.baiwei.tianlong.jindong.custom_view.MySearchView>
+            app:search_background="@color/colortou"
+            app:search_hint_text="商品详情"
+            >
 
-        <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
+        </com.baiwei.tianlong.jindong.custom_view.MySearchView>
+
+        <com.youth.banner.Banner
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/iv_product_icon_show"
             android:layout_width="match_parent"
             android:layout_height="350dp"

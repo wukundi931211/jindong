@@ -24,14 +24,14 @@
         <activity android:name=".mvp.main.HomeActivity" />
         <activity android:name=".mvp.search.SearchActivity" />
         <activity android:name=".mvp.login.LoginActiity" />
-        <activity android:name=".mvp.setting.view.activity.SettingActivity"/>
-        <activity android:name=".mvp.setting.view.activity.AddAddressActivity"/>
-        <activity android:name=".mvp.setting.view.activity.AddressActivity"/>
-        <activity android:name=".mvp.setting.view.activity.UpdateAddressActivity"/>
-
+        <activity android:name=".mvp.setting.view.activity.SettingActivity" />
+        <activity android:name=".mvp.setting.view.activity.AddAddressActivity" />
+        <activity android:name=".mvp.setting.view.activity.AddressActivity" />
+        <activity android:name=".mvp.setting.view.activity.UpdateAddressActivity" />
         <activity android:name=".mvp.show.ShowActivity" />
-        <activity android:name=".mvp.register.view.activity.RegisterActivity"/>
-        <activity android:name=".mvp.update_personal.PersonalActivity"></activity>
+        <activity android:name=".mvp.register.view.activity.RegisterActivity" />
+        <activity android:name=".mvp.update_personal.PersonalActivity" />
+        <activity android:name=".mvp.dingdan.DingDan"></activity>
     </application>
 
 </manifest>

@@ -32,4 +32,11 @@ public class ConstantApi {
     public static final String UPDATE_ADDR = "user/updateAddr";
     public static final String SET_ADDR = "user/setAddr";
     public static final String GET_DEFAULT_ADDR = "user/getDefaultAddr";
+
+
+
+    //商品展示
+    public static final String PRODUCT_INFO = "product/getProductDetail";
+    //添加购物车
+    public static final String PRODUCT_ADDCART = "product/addCart";
 }
