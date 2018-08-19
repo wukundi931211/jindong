@@ -11,7 +11,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.baiwei.tianlong.jindong.R;
 
 
-import com.baiwei.tianlong.jindong.mvp.dingdan_gouwuche.FragmentDingdan;
+import com.baiwei.tianlong.jindong.mvp.shopcar.FragmentDingdan;
 import com.baiwei.tianlong.jindong.mvp.faxian.FragmentFaXian;
 import com.baiwei.tianlong.jindong.mvp.fenlei.FragmentFenLei;
 import com.baiwei.tianlong.jindong.mvp.home.view.fragment.FragmentHome;

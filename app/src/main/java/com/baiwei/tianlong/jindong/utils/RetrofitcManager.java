@@ -43,6 +43,7 @@ public class RetrofitcManager {
                 .readTimeout(5, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
                 .build();
+
     }
     public <T> T create(Class<T> tClass) {
         return retrofit.create(tClass);

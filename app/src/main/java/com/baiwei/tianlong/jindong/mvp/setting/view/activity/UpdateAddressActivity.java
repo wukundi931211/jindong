@@ -20,7 +20,7 @@ import com.baiwei.tianlong.jindong.mvp.setting.view.iview.IUpdateAddressView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.umeng.socialize.utils.ContextUtil.getContext;
+
 
 public class UpdateAddressActivity extends BaseActivity<UpdateAddressPresenter> implements IUpdateAddressView {
     private static final String TAG = "UpdateAddressActivity--";
@@ -100,7 +100,7 @@ public class UpdateAddressActivity extends BaseActivity<UpdateAddressPresenter> 
         if (isLogin) {
             uid = sharedPreferences.getString("uid", "");
         } else {
-            Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
         }
     }
 

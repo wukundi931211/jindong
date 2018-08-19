@@ -23,7 +23,6 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.umeng.socialize.utils.ContextUtil.getContext;
 
 public class AddAddressActivity extends BaseActivity<AddAddressPresenter> implements IAddAddressView {
     private static final String TAG = "AddAddressActivity--";
@@ -93,7 +92,7 @@ public class AddAddressActivity extends BaseActivity<AddAddressPresenter> implem
             uid = sharedPreferences.getString("uid", "");
 
         } else {
-            Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
         }
     }
 

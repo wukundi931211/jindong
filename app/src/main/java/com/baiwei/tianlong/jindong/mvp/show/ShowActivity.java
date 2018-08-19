@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.baiwei.tianlong.jindong.R;
 import com.baiwei.tianlong.jindong.base.BaseActivity;
 import com.baiwei.tianlong.jindong.custom_view.MySearchView;
+import com.baiwei.tianlong.jindong.mvp.dingdan.DingDan;
 import com.baiwei.tianlong.jindong.mvp.login.LoginActiity;
 import com.baiwei.tianlong.jindong.mvp.show.model.beans.AddCartBean;
 import com.baiwei.tianlong.jindong.mvp.show.model.beans.ProductBeans;
@@ -78,9 +80,15 @@ public class ShowActivity extends BaseActivity<ShowPresenter> implements ShowIVi
 
     private String detailUrl;
     //标题
-    private String title;
-    private String uid;
-    private String productId;
+    private    String title;
+    private    String uid;
+    private    String productId;
+    private    String name;
+    private    String subhead;
+    private    String bargainPrice;
+    private    String price;
+    private    String sellerid;
+
     private ProductBeans.DataBean data;
     private List<String> list = new ArrayList<>();
 
@@ -153,12 +161,12 @@ public class ShowActivity extends BaseActivity<ShowPresenter> implements ShowIVi
     public void ShowProuductSuccess(ProductBeans productBeans) {
         //商家信息
         ProductBeans.SellerBean seller = productBeans.getSeller();
-        tvSellerNameShow.setText(seller.getName());
+        tvSellerNameShow.setText(name);
         sdvSellerIconShow.setImageURI(Uri.parse(seller.getIcon()));
 
 
         //商品信息
-         data = productBeans.getData();
+        data = productBeans.getData();
         //商品的url  分享使用
         detailUrl = data.getDetailUrl();
         //商品图片
@@ -166,15 +174,23 @@ public class ShowActivity extends BaseActivity<ShowPresenter> implements ShowIVi
         for (int i = 0; i < split.length; i++) {
             list.add(split[i]);
         }
-        ivProductIconShow.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+        ivProductIconShow.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         ivProductIconShow.setImageLoader(new MyLoader());
         ivProductIconShow.setImages(list);
         ivProductIconShow.setDelayTime(3000);
         ivProductIconShow.setBannerAnimation(Transformer.BackgroundToForeground);
+
         ivProductIconShow.start();
 
 
         title = data.getTitle();
+        name = seller.getName();
+        subhead = data.getSubhead();
+        price = data.getPrice()+"";
+        bargainPrice = data.getBargainPrice()+"";
+         sellerid = data.getSellerid()+"";
+
+
         //价钱
         tvProductPriceShow.setText("￥" + data.getBargainPrice());
         tvProductTitleShow.setText(title);
@@ -217,6 +233,7 @@ public class ShowActivity extends BaseActivity<ShowPresenter> implements ShowIVi
             case R.id.btn_add_product_show:
                 if (!TextUtils.isEmpty(uid)){
                     presenter.getAddCartData(uid,productId);
+
                 }else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setIcon(R.mipmap.ic_launcher);
@@ -243,12 +260,17 @@ public class ShowActivity extends BaseActivity<ShowPresenter> implements ShowIVi
                 //立即购买
             case R.id.btn_buy_product_show:
                 if (!TextUtils.isEmpty(uid)){
+                    //跳转订单详情页面
+                    Intent intent= new Intent(ShowActivity.this, DingDan.class);
+
+                    intent.putExtra("pid",productId);
+                    intent.putExtra("uid",uid);
+                    intent.putExtra("sellerid",sellerid);
+                    startActivityForResult(intent,1);
 
 
 
 
-
-                    presenter.getAddCartData(uid,productId);
                 }else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setIcon(R.mipmap.ic_launcher);
@@ -290,6 +312,14 @@ public class ShowActivity extends BaseActivity<ShowPresenter> implements ShowIVi
         public ImageView createImageView(Context context) {
             SimpleDraweeView simpleDraweeView = new SimpleDraweeView(context);
             return simpleDraweeView;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == 8 ){
+            getDataFromSharedPreferences();
         }
     }
 }

@@ -31,7 +31,8 @@
         <activity android:name=".mvp.show.ShowActivity" />
         <activity android:name=".mvp.register.view.activity.RegisterActivity" />
         <activity android:name=".mvp.update_personal.PersonalActivity" />
-        <activity android:name=".mvp.dingdan.DingDan"></activity>
+        <activity android:name=".mvp.dingdan.DingDan" />
+
     </application>
 
 </manifest>
